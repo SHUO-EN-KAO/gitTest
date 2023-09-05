@@ -32,8 +32,13 @@ class HomeController extends Controller
             });
     }
 
-    public function testResult()
+    public function testResult(Content $content)
     {
-        dd('view test');
+        // dd('view test');
+        
+        $content->title('testResult');
+        $content->description('date: '.date('Y-m-d'));
+
+        return $content;
     }
 }
