@@ -38,42 +38,49 @@
         const userNewData = <?php echo json_encode($jsonUserNew); ?>;
         console.log('userNewData:', userNewData);
 
-        // 創userNewLineChart結構
-        const userNewLineChart = new Chart($('#userNewLineChart'), {
-            data: {
-                labels: , // X軸座標值
-                datasets: [{
-                        label: , // data命名
-                        type: ,
-                        data: ,
-                        backgroundColor: ,
-                        borderColor: ,
-                        pointBorderColor: ,
-                        pointBackgroundColor: ,
-                        fill: ,
-                        lineTension: 0,
-                    },
-                    {
-                        label: , // data命名
-                        type: ,
-                        data: ,
-                        backgroundColor: ,
-                        borderColor: ,
-                        pointBorderColor: ,
-                        pointBackgroundColor: ,
-                        fill: , 
-                        lineTension: 0,
-                    },
-                ],
-            },
-            options: {
-                title:,
-                maintainAspectRatio:, 
-                legend:, // 線圖是否顯示
-                scales:, // 座標刻度單位
+        // userNewLineChart之X軸定義
+        const hourLabels = [];
+        for (let i = 0; i < 24; i++) {
+            hourLabels.push(i);
+        }
+        console.log('hourLabels:', hourLabels);
 
-            },
-        })
+        // 創userNewLineChart結構
+        // const userNewLineChart = new Chart($('#userNewLineChart'), {
+        //     data: {
+        //         labels: hourLabels, // X軸座標值
+        //         datasets: [{
+        //                 label: , // data命名
+        //                 type: ,
+        //                 data: ,
+        //                 backgroundColor: ,
+        //                 borderColor: ,
+        //                 pointBorderColor: ,
+        //                 pointBackgroundColor: ,
+        //                 fill: ,
+        //                 lineTension: 0,
+        //             },
+        //             {
+        //                 label: , // data命名
+        //                 type: ,
+        //                 data: ,
+        //                 backgroundColor: ,
+        //                 borderColor: ,
+        //                 pointBorderColor: ,
+        //                 pointBackgroundColor: ,
+        //                 fill: ,
+        //                 lineTension: 0,
+        //             },
+        //         ],
+        //     },
+        //     options: {
+        //         title: ,
+        //         maintainAspectRatio: ,
+        //         legend: , // 線圖是否顯示
+        //         scales: , // 座標刻度單位
+
+        //     },
+        // })
     </script>
 
 </body>
