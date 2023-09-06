@@ -7,15 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script> --}}
+
+    <script src="//cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
     <style>
         #userNewLineChart {
+            height: 245px;
             background-color: #fff;
             border-radius: 15px;
         }
 
         #revenueLineChart {
+            height: 245px;
             background-color: #fff;
             border-radius: 15px;
         }
@@ -45,42 +49,75 @@
         }
         console.log('hourLabels:', hourLabels);
 
-        // 創userNewLineChart結構
-        // const userNewLineChart = new Chart($('#userNewLineChart'), {
-        //     data: {
-        //         labels: hourLabels, // X軸座標值
-        //         datasets: [{
-        //                 label: , // data命名
-        //                 type: ,
-        //                 data: ,
-        //                 backgroundColor: ,
-        //                 borderColor: ,
-        //                 pointBorderColor: ,
-        //                 pointBackgroundColor: ,
-        //                 fill: ,
-        //                 lineTension: 0,
-        //             },
-        //             {
-        //                 label: , // data命名
-        //                 type: ,
-        //                 data: ,
-        //                 backgroundColor: ,
-        //                 borderColor: ,
-        //                 pointBorderColor: ,
-        //                 pointBackgroundColor: ,
-        //                 fill: ,
-        //                 lineTension: 0,
-        //             },
-        //         ],
-        //     },
-        //     options: {
-        //         title: ,
-        //         maintainAspectRatio: ,
-        //         legend: , // 線圖是否顯示
-        //         scales: , // 座標刻度單位
+        // userNewLineChart之androidUserCount之data定義
+        const androidUserCount = userNewData['data']['statistics'][0]['userCount'];
+        console.log('androidUserCount:', androidUserCount);
 
-        //     },
-        // })
+        // userNewLineChart之iOSUserCount之data定義
+        const iOSUserCount = userNewData['data']['statistics'][1]['userCount'];
+        console.log('iOSUserCount:', iOSUserCount);
+
+        // 創userNewLineChart結構
+        let userNewLineChart = new Chart($('#userNewLineChart'), {
+            data: {
+                labels: hourLabels, // X軸座標值
+                datasets: [{
+                        label: 'AndroidUser', // data命名
+                        type: 'line',
+                        data: androidUserCount,
+                        backgroundColor: 'transparent',
+                        borderColor: '#B39A02',
+                        pointBorderColor: '#B39A02',
+                        pointBackgroundColor: '#B39A02',
+                        fill: false,
+                        lineTension: 0,
+                    },
+                    {
+                        label: 'iOSUser', // data命名
+                        type: 'line',
+                        data: iOSUserCount,
+                        backgroundColor: 'transparent',
+                        borderColor: '#1500B3',
+                        pointBorderColor: '#1500B3',
+                        pointBackgroundColor: '#1500B3',
+                        fill: false,
+                        lineTension: 0,
+                    },
+                ],
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'New User',
+                    fontSize: 18,
+                    fontStyle: 'bold',
+                    padding: 0
+                },
+                maintainAspectRatio: false,
+
+                // 線圖是否顯示
+                legend: {
+                    display: false
+                },
+
+                // 座標刻度單位
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'userCount'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'hour'
+                        }
+                    }]
+                },
+            },
+        });
+
     </script>
 
 </body>
