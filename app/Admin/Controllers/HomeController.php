@@ -46,7 +46,7 @@ class HomeController extends Controller
 
         // 將API回傳值轉為json array
         $jsonUserNew = $response->json();
-        dd($jsonUserNew);
+        // dd($jsonUserNew);
 
         $content->title('testResult');
         $content->description('date: '.date('Y-m-d'));
