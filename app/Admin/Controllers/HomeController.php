@@ -51,6 +51,10 @@ class HomeController extends Controller
         $content->title('testResult');
         $content->description('date: '.date('Y-m-d'));
 
+        $content->view('testResult',[
+            'jsonUserNew'=>$jsonUserNew,
+        ]);
+
         return $content;
     }
 }
